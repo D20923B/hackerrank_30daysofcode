@@ -1,0 +1,30 @@
+function processData(input) {
+    //Enter your code here
+    let a = input.split('\n')
+    for(var i=1; i<=a[0]; i++){
+        data = a[i]
+        even=[]
+        odd=[]
+        for(var b=0;b<data.length;b++){
+            if(b%2==0){
+                even.push(data[b])
+            }
+            else{
+                odd.push(data[b])
+            }
+        }
+        let res=even.join('')+" "+odd.join('')
+        console.log(res)
+    }
+} 
+
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+_input = "";
+process.stdin.on("data", function (input) {
+    _input += input;
+});
+
+process.stdin.on("end", function () {
+   processData(_input);
+});
