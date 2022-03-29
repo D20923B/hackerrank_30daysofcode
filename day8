@@ -1,0 +1,40 @@
+function processData(input) {
+    //Enter your code here
+    let data=input.split("\n")
+    let ip=data[0]
+    data.shift()
+    let direct={}
+    let search=[]
+    for(var i=0;i<ip;i++)
+    {
+        let res=data[i].split(" ")
+        let a=res[0]
+        let b=res[1]
+        direct[a]=b
+    }
+    for(var i=ip;i<data.length;i++)
+    {
+        search.push(data[i])
+    }
+    for(var i=0;i<search.length;i++)
+    {
+        if(direct[search[i]]===undefined){
+            console.log('Not found')
+        }
+        else{
+            let result=search[i]+"="+direct[search[i]]
+            console.log(result)
+        }
+    }
+} 
+
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+_input = "";
+process.stdin.on("data", function (input) {
+    _input += input;
+});
+
+process.stdin.on("end", function () {
+   processData(_input);
+});
