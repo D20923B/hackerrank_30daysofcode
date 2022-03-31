@@ -1,0 +1,10 @@
+lass Calculator{
+power(n,p){
+    if(n>=0&&p>=0){
+        return(n**p)
+    }
+    else{
+        throw ('n and p should be non-negative')
+    }
+}
+}
