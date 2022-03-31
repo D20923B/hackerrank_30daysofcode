@@ -1,0 +1,55 @@
+'use strict';
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+
+
+function main() {
+
+    let arr = Array(6);
+
+    for (let i = 0; i < 6; i++) {
+        arr[i] = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
+    }
+    var data=[]
+    for(var i=0;i<arr.length;i++)
+    {
+        for(var a=0;a<arr.length;a++)
+        {
+            if(arr[i][a+2]!=undefined)
+            {
+                if(i<arr.length-2){
+                    //getting the upper set
+                let a1 = arr[i][a]+arr[i][a+1]+arr[i][a+2]
+                let a2 = arr[i+1][a+1]
+                let a3 = arr[i+2][a]+arr[i+2][a+1]+arr[i+2][a+2]
+                let a4=a1+a2+a3
+                data.push(a4)
+                }    
+            }
+            else
+            {
+                break
+            }
+        }
+    }
+    console.log(Math.max(...data))
+}
